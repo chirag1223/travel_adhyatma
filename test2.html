@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Adhyatma | Sacred Journeys</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Outfit:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body, html { 
+            height: 100%; 
+            margin: 0; 
+            font-family: 'Outfit', sans-serif; 
+            overflow-x: hidden;
+        }
+        .cinzel { font-family: 'Cinzel', serif; }
+
+        /* Updated Full Screen Background - YOUR IMAGE PRESERVED */
+        .full-bg {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.8) 100%), 
+                        url('./bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .saffron-button {
+            background-color: #f39221;
+            transition: all 0.3s ease;
+        }
+
+        .saffron-button:hover {
+            background-color: #d87d1a;
+            transform: translateY(-2px);
+        }
+
+        /* Circular Animations */
+        .circular-text {
+            position: absolute;
+            bottom: 50vh;
+            right: 150px;
+            width: 200px;
+            height: 200px;
+            animation: rotate 25s linear infinite;
+        }
+
+        .circular-text span {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform-origin: 0 100px;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            color: #f39221;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Left Circular Animation */
+        .circular-text-left {
+            position: absolute;
+            bottom: 50vh;
+            left: 150px;
+            width: 200px;
+            height: 200px;
+            animation: rotate 25s linear infinite;
+        }
+
+        .circular-text-left span {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform-origin: 0 100px;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            color: #f39221;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 22px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #f39221;
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            /* Adjust background for mobile */
+            .full-bg {
+                background-attachment: scroll;
+                height: auto;
+                min-height: 100vh;
+            }
+            
+            /* Hide circular animations on mobile */
+            .circular-text, .circular-text-left {
+                display: none;
+            }
+            
+            /* Adjust social icons */
+            .social-icons {
+                top: 20px;
+                right: 20px;
+                gap: 15px;
+            }
+            
+            .social-icons a {
+                font-size: 20px;
+            }
+            
+            /* Adjust logo size */
+            nav .p-4 img {
+                height: 100px !important;
+            }
+            
+            /* Adjust main content spacing */
+            main {
+                margin-top: 0 !important;
+                padding: 20px 15px !important;
+            }
+            
+            /* Adjust heading sizes */
+            h2 {
+                font-size: 0.875rem !important;
+                letter-spacing: 0.2em !important;
+                margin-bottom: 15px !important;
+            }
+            
+            h1 {
+                font-size: 1.875rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 20px !important;
+            }
+            
+            /* Adjust paragraph text */
+            p.text-base {
+                font-size: 0.875rem !important;
+                margin-bottom: 30px !important;
+                line-height: 1.6 !important;
+            }
+            
+            /* Adjust form layout */
+            form {
+                flex-direction: column !important;
+                border-radius: 8px !important;
+            }
+            
+            input[type="email"] {
+                padding: 16px !important;
+                font-size: 16px !important;
+                width: 100% !important;
+            }
+            
+            .saffron-button {
+                padding: 16px !important;
+                font-size: 16px !important;
+                width: 100% !important;
+            }
+            
+            /* Adjust launch date text */
+            p.text-xs {
+                font-size: 0.7rem !important;
+                margin-top: 15px !important;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem !important;
+            }
+            
+            h2 {
+                font-size: 0.75rem !important;
+            }
+            
+            nav .p-4 img {
+                height: 80px !important;
+            }
+            
+            .social-icons {
+                top: 15px;
+                right: 15px;
+                gap: 12px;
+            }
+            
+            .social-icons a {
+                font-size: 18px;
+            }
+        }
+        
+        /* Tablet adjustments */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .circular-text, .circular-text-left {
+                width: 150px;
+                height: 150px;
+                bottom: 40vh;
+            }
+            
+            .circular-text {
+                right: 50px;
+            }
+            
+            .circular-text-left {
+                left: 50px;
+            }
+            
+            .circular-text span, .circular-text-left span {
+                transform-origin: 0 75px;
+                font-size: 18px;
+            }
+            
+            h1 {
+                font-size: 2.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-black">
+
+    
+
+
+    
+
+    <div class="full-bg">
+        
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        
+        <nav class="w-full flex justify-center pt-6 md:pt-10">
+            <div class="p-4">
+              <img src="./logo.PNG" alt="Logo" class="h-40 md:h-48 my-4">
+            </div>
+        </nav>
+
+        <main class="flex-grow flex flex-col items-center justify-bitween px-6 text-center text-white mt-4 md:mt-8">
+            
+            <div class="max-w-5xl">
+                <h2 class="cinzel text-lg md:text-xl tracking-[0.5em] mb-4 text-[#f39221] font-bold">
+                    Journey To The Soul
+                </h2>
+                
+                <h1 class="cinzel text-3xl md:text-6xl mb-6 leading-tight drop-shadow-lg">
+                    SOMETHING SACRED <br> IS ARRIVING
+                </h1>
+
+                <p class="text-base md:text-lg max-w-3xl mx-auto mb-10 font-light text-gray-200 tracking-wide leading-relaxed">
+                    Experience the 4-Dhams, the holy rivers, and the Himalayan peaks like never before. 
+                    Your spiritual awakening begins here.
+                </p>
+
+               <div class="max-w-xl mx-auto">
+    <form  action="https://formspree.io/f/mvzqyayj"
+  method="POST" class="flex flex-col md:flex-row gap-3">
+        <input type="email" name="email" placeholder="Your email address" 
+            class="flex-1 px-6 py-4 bg-white/10 border border-white/20 text-white text-base md:text-lg rounded-lg focus:outline-none focus:border-[#f39221] focus:bg-white/15 transition-all duration-300">
+        <button class="saffron-button px-8 py-4 font-bold uppercase tracking-widest text-white text-base md:text-lg cinzel rounded-lg hover:bg-[#d87d1a] transition-all duration-300">
+            Notify Me
+        </button>
+    </form>
+    <p class="mt-4 text-xs md:text-sm tracking-[0.2em] opacity-60 uppercase text-center">Launching February 2026</p>
+</div>
+            </div>
+
+        </main>
+
+        <!-- Circular Destination Animation (Hidden on mobile) -->
+        <div class="circular-text">
+            <span style="transform: rotate(0deg)">Gangotri</span>
+            <span style="transform: rotate(90deg)">Yamunotri</span>
+            <span style="transform: rotate(180deg)">Kedarnath</span>
+            <span style="transform: rotate(270deg)">Badrinath</span>
+        </div>
+
+        <!-- Left Circular Animation (Hidden on mobile) -->
+        <div class="circular-text-left">
+            <span style="transform: rotate(0deg)">Haridwar</span>
+            <span style="transform: rotate(90deg)">Rishikesh</span>
+            <span style="transform: rotate(180deg)">Varanasi</span>
+            <span style="transform: rotate(270deg)">Amarnath</span>
+        </div>
+
+    </div>
+
+</body>
+</html>
